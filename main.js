@@ -158,10 +158,9 @@ game.onload = function () {
 		}, 5000);
 		
 		// ハート
-		var _this = this;
 		var item8 = new RPGObject();
 		item8.mod(Hack.assets.heart);
-		item8.locate(_this.mapX, _this.mapY, 'map5');
+		item8.locate(this.mapX, this.mapY, 'map5');
 		item8.onplayerenter = function () {
 			Hack.player.hp += 2;
 			this.destroy();
@@ -306,10 +305,9 @@ game.onload = function () {
 		Hack.openExternal('https://www.youtube.com/watch?v=a7ai08D1rbo');
 		
 		// 姫
-		var _this = this;
 		var chara1 = new RPGObject();
 		chara1.mod(Hack.assets.woman);
-		chara1.locate(_this.mapX, _this.mapY, 'map7');
+		chara1.locate(this.mapX, this.mapY, 'map7');
 		chara1.oncollided = function () {
 			Hack.textarea.height = 55;
 			Hack.log('勇者さん、ドラゴンから助けてくれてありがとうございます。これで世界に平和が戻りました。');
