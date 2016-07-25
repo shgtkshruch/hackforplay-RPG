@@ -300,6 +300,16 @@ game.onload = function () {
 	enemy7.locate(12, 8, 'map7');
 	enemy7.scale(2, 2);
 	enemy7.setFrame('Idle', [10]);
+	enemy7.onbecomeidle = function () {
+		var target = Hack.player;
+		if (!target) return;
+		var moveX = 32 * Math.sign(target.mapX - this.mapX);
+		var moveY = 32 * Math.sign(target.mapY - this.mapY);
+		this.direction = moveX;
+		this.tl.become('walk').moveBy(moveX, moveY, 30).then(function () {
+			Hack.Attack.call(this, this.mapX, this.mapY, this.atk);
+		}).become('attack', 20).become('idle');
+	};
 	enemy7.onbecomedead = function () {
 		Hack.score += 10;
 		Hack.openExternal('https://www.youtube.com/watch?v=a7ai08D1rbo');
