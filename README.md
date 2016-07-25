@@ -1,2 +1,3 @@
 # hackforplay-RPG
-RPG by hackforplay
+
+RPG by [hackforplay](https://hackforplay.xyz/).
